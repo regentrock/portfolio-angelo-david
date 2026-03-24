@@ -1,0 +1,353 @@
+/* src/components/Hero/Hero.module.css */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  background: linear-gradient(135deg, var(--gray-300) 0%, var(--gray-800) 100%);
+}
+
+@keyframes scrollCode {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(-30%) translateY(-30%);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  text-align: center;
+  animation: fadeInUp 0.8s ease;
+}
+
+.prompt {
+  color: var(--secondary-500);
+  margin-right: 0.5rem;
+}
+
+.command {
+  color: var(--text-secondary);
+}
+
+/* Título */
+.title {
+  margin-bottom: 2rem;
+}
+
+.greeting {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(135deg, var(--text-primary), var(--secondary-500));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 3rem;
+  background: var(--secondary-500);
+  margin-left: 4px;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Terminal */
+.terminal {
+  max-width: 550px;
+  margin: 0 auto 2rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+}
+
+.terminalHeader {
+  background: var(--bg-tertiary);
+  padding: 0.75rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.dot:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.dot:nth-child(3) {
+  background: #27c93f;
+}
+
+.terminalContent {
+  padding: 1.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.promptSymbol {
+  color: var(--secondary-500);
+  font-weight: 500;
+}
+
+.terminalText {
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+.cursorBlink {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--secondary-500);
+  animation: blink 1s step-end infinite;
+}
+
+/* Descrição */
+.description {
+  font-size: 1.125rem;
+  color: var(--text-tertiary);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* Botões */
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary, .btnSecondary {
+  padding: 0.75rem 1.75rem;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btnPrimary {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background: var(--secondary-500);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btnSecondary:hover {
+  border-color: var(--secondary-500);
+  color: var(--secondary-500);
+  transform: translateY(-2px);
+}
+
+.btnArrow {
+  font-size: 1rem;
+  transition: transform var(--transition-fast);
+}
+
+.btnPrimary:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+.btnSecondary:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* Social links minimalistas */
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.social a {
+  color: var(--text-tertiary);
+  transition: color var(--transition-fast);
+}
+
+.social a:hover {
+  color: var(--secondary-500);
+}
+
+.divider {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+/* Scroll indicator */
+.scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+  z-index: 2;
+}
+
+.scroll:hover {
+  opacity: 1;
+}
+
+.scroll span {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scroll svg {
+  color: var(--text-tertiary);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .name {
+    font-size: 2.5rem;
+  }
+  
+  .greeting {
+    font-size: 1rem;
+  }
+  
+  .cursor {
+    height: 2.5rem;
+  }
+  
+  .terminal {
+    max-width: 90%;
+  }
+  
+  .terminalContent {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .buttons {
+    gap: 0.75rem;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2rem;
+  }
+  
+  .cursor {
+    height: 2rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btnPrimary, .btnSecondary {
+    justify-content: center;
+  }
+  
+  .social {
+    font-size: 0.8125rem;
+  }
+}

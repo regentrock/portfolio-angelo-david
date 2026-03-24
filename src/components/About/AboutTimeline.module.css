@@ -1,0 +1,103 @@
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--secondary-500), var(--secondary-400));
+  border-radius: 2px;
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.25rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timelineDot {
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--secondary-500);
+  border: 2px solid var(--bg-secondary);
+  box-shadow: 0 0 0 2px var(--secondary-500);
+  transition: all var(--transition-fast);
+}
+
+.timelineItem:hover .timelineDot {
+  transform: scale(1.2);
+  background-color: var(--secondary-400);
+}
+
+.timelineDate {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--secondary-500);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background: var(--bg-accent);
+  border-radius: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+.timelineTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.timelineCompany {
+  font-size: 0.8125rem;
+  color: var(--secondary-500);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.timelineDescription {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timelineItem {
+    padding-left: 1rem;
+  }
+
+  .timelineDot {
+    left: -1.625rem;
+    width: 8px;
+    height: 8px;
+  }
+}

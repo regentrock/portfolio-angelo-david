@@ -1,26 +1,281 @@
-@import "tailwindcss";
-
+/* src/app/globals.css */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Cores Primárias - Charcoal */
+  --primary-50: #f5f5f5;
+  --primary-100: #e5e5e5;
+  --primary-200: #d4d4d4;
+  --primary-300: #a3a3a3;
+  --primary-400: #737373;
+  --primary-500: #2E2E2E;  /* Charcoal - Cor principal */
+  --primary-600: #262626;
+  --primary-700: #1f1f1f;
+  --primary-800: #171717;
+  --primary-900: #0f0f0f;
+  
+  /* Cores Secundárias - Muted Blue */
+  --secondary-50: #eef4ff;
+  --secondary-100: #e0e9ff;
+  --secondary-200: #c7d9fe;
+  --secondary-300: #a5c1fc;
+  --secondary-400: #7aa2f0;
+  --secondary-500: #4A90E2;  /* Muted Blue - Cor de destaque */
+  --secondary-600: #3b7ac9;
+  --secondary-700: #2f64b0;
+  --secondary-800: #244e97;
+  --secondary-900: #1a3d7e;
+  
+  /* Cores Neutras */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  
+  /* Cores de Fundo - Mais ricas */
+  --bg-primary: #F8F9FA;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F0F2F5;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-accent: rgba(74, 144, 226, 0.04);
+  
+  /* Cores de Texto */
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --text-tertiary: #6B6B6B;
+  --text-muted: #8C8C8C;
+  
+  /* Cores de Destaque */
+  --accent-success: #10b981;
+  --accent-warning: #f59e0b;
+  --accent-error: #ef4444;
+  --accent-info: #4A90E2;
+  
+  /* Gradientes - Mais sutis */
+  --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  --gradient-secondary: linear-gradient(135deg, var(--secondary-500), var(--primary-500));
+  --gradient-subtle: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+  --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #FEFEFE 100%);
+  --gradient-light: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+  
+  /* Sombras - Mais suaves e com profundidade */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+  --shadow-glow: 0 0 20px rgba(74, 144, 226, 0.15);
+  
+  /* Bordas */
+  --border-color: #E9ECEF;
+  --border-color-light: #F1F3F5;
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+  
+  /* Transições */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-Index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+  /* Textura sutil de fundo */
+  background-image: 
+    radial-gradient(var(--gray-200) 0.8px, transparent 0.8px),
+    radial-gradient(var(--gray-200) 0.5px, transparent 0.5px);
+  background-size: 40px 40px, 20px 20px;
+  background-position: 0 0, 20px 20px;
+  background-attachment: fixed;
+}
+
+/* Seleção de texto */
+::selection {
+  background-color: var(--secondary-500);
+  color: white;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-500);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Container padrão */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Classes utilitárias */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-bg {
+  background: var(--gradient-primary);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-500);
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Efeito de profundidade para seções alternadas */
+section:nth-child(even) {
+  background: var(--gradient-subtle);
+}
+
+section:nth-child(odd) {
+  background: var(--bg-primary);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  :root {
+    --border-radius-lg: 0.5rem;
+    --border-radius-xl: 0.75rem;
+  }
+  
+  body {
+    background-size: 30px 30px, 15px 15px;
+  }
 }
