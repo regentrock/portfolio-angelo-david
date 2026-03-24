@@ -1,4 +1,3 @@
-// src/components/Footer/Footer.jsx
 'use client';
 import styles from './Footer.module.css';
 

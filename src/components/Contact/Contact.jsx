@@ -25,7 +25,7 @@ const Contact = () => {
       title: "Telefone",
       value: "+55 (19) 98904-7317",
       link: "tel:+5519989047317",
-      description: "Disponível para ligações e mensagens"
+      description: "Disponível para mensagens"
     },
     {
       icon: (
@@ -56,7 +56,6 @@ const Contact = () => {
         </div>
 
         <div className={styles.content}>
-          {/* Informações de Contato */}
           <div className={styles.infoSection}>
             <h3 className={styles.sectionTitle}>
               <span className={styles.titleIcon}>
@@ -117,7 +116,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Formulário de Contato */}
           <ContactForm />
         </div>
       </div>

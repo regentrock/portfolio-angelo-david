@@ -1,4 +1,3 @@
-// src/components/Projects/ProjectCard.js
 'use client';
 import { useState } from 'react';
 import styles from './ProjectCard.module.css';
@@ -57,16 +56,11 @@ const ProjectCard = ({ project }) => {
         <p className={styles.projectDescription}>{project.description}</p>
 
         <div className={styles.technologies}>
-          {project.technologies.slice(0, 4).map((tech, index) => (
+          {project.technologies.map((tech, index) => (
             <span key={index} className={styles.techTag}>
               {tech}
             </span>
           ))}
-          {project.technologies.length > 4 && (
-            <span className={styles.techTag}>
-              +{project.technologies.length - 4}
-            </span>
-          )}
         </div>
 
         <div className={styles.buttons}>

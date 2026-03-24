@@ -1,4 +1,3 @@
-/* src/components/Header/Header.module.css */
 .header {
   position: fixed;
   top: 0;
@@ -7,6 +6,7 @@
   z-index: var(--z-fixed);
   transition: all var(--transition-normal);
   background-color: transparent;
+  color: var(--gray-50);
 }
 
 .headerScrolled {
@@ -14,6 +14,7 @@
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
   border-bottom: 1px solid var(--border-color);
+  color: var(--gray-800);
 }
 
 .nav {
@@ -28,15 +29,10 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-500);
   transition: color var(--transition-fast);
 }
 
 .logo:hover {
-  color: var(--secondary-500);
-}
-
-.logo span {
   color: var(--secondary-500);
 }
 
@@ -48,7 +44,6 @@
 
 .navLinks a {
   font-weight: 500;
-  color: var(--text-secondary);
   transition: color var(--transition-fast);
   position: relative;
   font-size: 0.9375rem;
