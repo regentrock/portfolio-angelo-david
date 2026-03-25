@@ -1,4 +1,3 @@
-// src/components/Skills/SkillCard.js
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Skills.module.css';

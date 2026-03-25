@@ -1,4 +1,3 @@
-// src/components/Contact/Contact.jsx
 'use client';
 import styles from './Contact.module.css';
 import ContactForm from './ContactForm';
@@ -50,7 +49,7 @@ const Contact = () => {
             Vamos <span className={styles.gradient}>trabalhar juntos</span>
           </h2>
           <p className={styles.description}>
-            Estou em busca da primeira oportunidade como desenvolvedor. Se você tem um projeto
+            Estou em busca de uma oportunidade como desenvolvedor. Se você tem um projeto
             interessante ou quer conversar sobre tecnologia, entre em contato!
           </p>
         </div>
@@ -91,7 +90,7 @@ const Contact = () => {
               <h4 className={styles.socialTitle}>Redes Sociais</h4>
               <div className={styles.socialLinks}>
                 <a 
-                  href="https://github.com/seu-usuario" 
+                  href="https://github.com/regentrock" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={styles.socialLink}
@@ -102,7 +101,7 @@ const Contact = () => {
                   <span>GitHub</span>
                 </a>
                 <a 
-                  href="https://linkedin.com/in/seu-usuario" 
+                  href="https://linkedin.com/in/angelo-david-dev" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className={styles.socialLink}
@@ -115,7 +114,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
           <ContactForm />
         </div>
       </div>

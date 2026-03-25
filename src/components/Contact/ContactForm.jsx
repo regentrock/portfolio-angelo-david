@@ -1,9 +1,16 @@
-// src/components/Contact/ContactForm.jsx
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import styles from './Contact.module.css';
 
+const EMAILJS_CONFIG = {
+  SERVICE_ID: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  TEMPLATE_ID: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+  PUBLIC_KEY: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+};
+
 const ContactForm = () => {
+  const formRef = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -61,17 +68,43 @@ const ContactForm = () => {
     
     setStatus('sending');
     
-    // Simular envio
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setErrors({});
-      setTimeout(() => setStatus(''), 3000);
-    }, 1500);
+    try {
+      // Preparar os dados para enviar
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'angeloguittar2017@gmail.com', // Seu email
+        reply_to: formData.email
+      };
+      
+      // Enviar email via EmailJS
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      
+      if (response.status === 200) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setErrors({});
+        setTimeout(() => setStatus(''), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      }
+    } catch (error) {
+      console.error('Erro ao enviar email:', error);
+      setStatus('error');
+      setTimeout(() => setStatus(''), 5000);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
+    <form ref={formRef} onSubmit={handleSubmit} className={styles.formContainer}>
       <h3 className={styles.formTitle}>
         <span className={styles.titleIcon}>
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,6 +128,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
             placeholder="Seu nome completo"
+            disabled={status === 'sending'}
           />
         </div>
         {errors.name && <span className={styles.errorMessage}>{errors.name}</span>}
@@ -114,6 +148,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
             placeholder="seu@email.com"
+            disabled={status === 'sending'}
           />
         </div>
         {errors.email && <span className={styles.errorMessage}>{errors.email}</span>}
@@ -133,6 +168,7 @@ const ContactForm = () => {
             onChange={handleChange}
             className={`${styles.input} ${errors.subject ? styles.inputError : ''}`}
             placeholder="Assunto da mensagem"
+            disabled={status === 'sending'}
           />
         </div>
         {errors.subject && <span className={styles.errorMessage}>{errors.subject}</span>}
@@ -152,6 +188,7 @@ const ContactForm = () => {
             rows="5"
             className={`${styles.input} ${styles.textarea} ${errors.message ? styles.inputError : ''}`}
             placeholder="Sua mensagem..."
+            disabled={status === 'sending'}
           />
         </div>
         {errors.message && <span className={styles.errorMessage}>{errors.message}</span>}
@@ -183,6 +220,15 @@ const ContactForm = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           Mensagem enviada com sucesso! Entrarei em contato em breve.
+        </div>
+      )}
+
+      {status === 'error' && (
+        <div className={styles.errorMessageBox}>
+          <svg className={styles.errorIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato diretamente pelo email.
         </div>
       )}
     </form>

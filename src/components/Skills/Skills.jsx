@@ -1,25 +1,31 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 import styles from './Skills.module.css';
-import { getProjects } from '@/data/projects';
+import { getTechnicalSkills, getTechStack } from '@/data/skills';
 
 const Skills = () => {
   const [techStack, setTechStack] = useState([]);
+  const [technicalSkills, setTechnicalSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [animated, setAnimated] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    loadTechStack();
+    loadSkillsData();
   }, []);
 
-  const loadTechStack = async () => {
+  const loadSkillsData = async () => {
     try {
-      const projects = await getProjects();
-      const technologies = [...new Set(projects.flatMap(p => p.technologies))];
-      setTechStack(technologies.sort());
+      setLoading(true);
+      const [skills, stack] = await Promise.all([
+        getTechnicalSkills(),
+        getTechStack()
+      ]);
+      
+      setTechnicalSkills(skills);
+      setTechStack(stack.sort());
     } catch (error) {
-      console.error('Erro ao carregar tecnologias:', error);
+      console.error('Erro ao carregar habilidades:', error);
     } finally {
       setLoading(false);
     }
@@ -42,40 +48,6 @@ const Skills = () => {
     return () => observer.disconnect();
   }, [animated]);
 
-  const skillCategories = [
-    {
-      title: "Front-end",
-      skills: [
-        { name: "HTML5", level: 99 },
-        { name: "CSS3", level: 96 },
-        { name: "CSS Modules", level: 95 },
-        { name: "JavaScript (ES6+)", level: 85 },
-        { name: "TypeScript", level: 82 },
-        { name: "React.js", level: 80 },
-        { name: "Next.js", level: 80 }
-      ]
-    },
-    {
-      title: "Back-end & Database",
-      skills: [
-        { name: "Node.js", level: 65 },
-        { name: "MySQL", level: 88 },
-        { name: "API REST", level: 70 }
-      ]
-    },
-    {
-      title: "Tools & Practices",
-      skills: [
-        { name: "Git & GitHub", level: 82 },
-        { name: "Componentização", level: 88 },
-        { name: "Responsividade", level: 95 },
-        { name: "Performance", level: 90 },
-        { name: "SAP", level: 70 },
-        { name: "Pacote Office", level: 95 }
-      ]
-    }
-  ];
-
   return (
     <section id="skills" className={styles.skills} ref={sectionRef}>
       <div className={styles.container}>
@@ -90,9 +62,9 @@ const Skills = () => {
         </div>
 
         <div className={styles.grid}>
-          {skillCategories.map((category, idx) => (
+          {technicalSkills.map((category, idx) => (
             <div key={idx} className={styles.category}>
-              <h3 className={styles.categoryTitle}>{category.title}</h3>
+              <h3 className={styles.categoryTitle}>{category.category}</h3>
               <div className={styles.skillList}>
                 {category.skills.map((skill, skillIdx) => (
                   <div key={skillIdx} className={styles.skill}>
@@ -118,9 +90,9 @@ const Skills = () => {
 
         <div className={styles.stack}>
           <div className={styles.stackHeader}>
-            <h3 className={styles.stackTitle}>Tech Stack</h3>
+            <h3 className={styles.stackTitle}>Tecnologias em destaque</h3>
           </div>
-          <p className={styles.stackDesc}>Tecnologias utilizadas nos meus projetos</p>
+          <p className={styles.stackDesc}>Tecnologias que utilizo em meus projetos</p>
           
           {loading ? (
             <div className={styles.stackGrid}>

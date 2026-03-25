@@ -102,14 +102,13 @@ const Hero = () => {
               Ver projetos
             </button>
             <a href="#contact" className={styles.btnSecondary}>
-              <span className={styles.btnArrow}>✉</span>
               Contato
             </a>
           </div>
 
           <div className={styles.social}>
             <a 
-              href="https://github.com/seu-usuario" 
+              href="https://github.com/regentrock" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -120,7 +119,7 @@ const Hero = () => {
               GitHub
             </a>
             <a 
-              href="https://linkedin.com/in/seu-usuario" 
+              href="https://linkedin.com/in/angelo-david-dev" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.socialLink}

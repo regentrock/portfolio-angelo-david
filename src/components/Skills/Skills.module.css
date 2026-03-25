@@ -1,4 +1,3 @@
-/* src/components/Skills/Skills.module.css */
 .skills {
   padding: 5rem 0;
   background-color: var(--bg-primary);
@@ -11,7 +10,6 @@
   padding: 0 2rem;
 }
 
-/* Header */
 .header {
   text-align: center;
   margin-bottom: 4rem;
@@ -51,7 +49,6 @@
   line-height: 1.5;
 }
 
-/* Grid de categorias */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -59,7 +56,6 @@
   margin-bottom: 4rem;
 }
 
-/* Categoria */
 .category {
   background: transparent;
 }
@@ -74,7 +70,6 @@
   letter-spacing: -0.01em;
 }
 
-/* Lista de skills */
 .skillList {
   display: flex;
   flex-direction: column;
@@ -105,7 +100,6 @@
   font-family: monospace;
 }
 
-/* Barra de progresso */
 .progressTrack {
   width: 100%;
   height: 3px;
@@ -121,7 +115,6 @@
   transition: width 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
-/* Tech Stack */
 .stack {
   margin-top: 3rem;
   padding-top: 3rem;
@@ -138,13 +131,13 @@
 }
 
 .stackTitle {
-  font-size: 1rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .stackDesc {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-tertiary);
   margin-bottom: 1.5rem;
 }
@@ -157,11 +150,11 @@
 }
 
 .stackItem {
-  padding: 0.35rem 1rem;
+  padding: 0.4rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 2rem;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-tertiary);
   transition: all 0.2s ease;
@@ -190,7 +183,6 @@
   }
 }
 
-/* Responsivo */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -248,7 +240,7 @@
   }
 
   .stackItem {
-    padding: 0.25rem 0.875rem;
-    font-size: 0.7rem;
+    padding: 0.3rem 0.875rem;
+    font-size: 0.75rem;
   }
 }
