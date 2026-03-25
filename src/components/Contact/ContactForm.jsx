@@ -69,17 +69,19 @@ const ContactForm = () => {
     setStatus('sending');
     
     try {
-      // Preparar os dados para enviar
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'angeloguittar2017@gmail.com', // Seu email
-        reply_to: formData.email
+        time: new Date().toLocaleString('pt-BR', {
+          dateStyle: 'full',
+          timeStyle: 'short'
+        }),
+        message_id: Math.random().toString(36).substring(2, 10).toUpperCase(),
+        current_year: new Date().getFullYear()
       };
       
-      // Enviar email via EmailJS
       const response = await emailjs.send(
         EMAILJS_CONFIG.SERVICE_ID,
         EMAILJS_CONFIG.TEMPLATE_ID,
