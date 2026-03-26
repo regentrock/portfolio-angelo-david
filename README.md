@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfólio Profissional - Ângelo David
 
-## Getting Started
+Portfólio web desenvolvido com foco em performance, organização de código e apresentação profissional de projetos.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Sobre o projeto
+
+Este portfólio foi desenvolvido para centralizar e apresentar meus projetos, habilidades e evolução como desenvolvedor front-end.
+
+A aplicação foi construída utilizando Next.js, com foco em boas práticas como componentização, organização escalável e renderização otimizada.
+
+Além disso, o projeto foi pensado como uma base sólida para futuras melhorias e expansão da minha presença profissional online.
+
+---
+
+## Funcionalidades
+
+* Listagem dinâmica de projetos
+* Destaque para projetos principais
+* Links para GitHub e deploy dos projetos
+* Design responsivo (mobile e desktop)
+* Navegação rápida e otimizada
+* Estrutura componentizada
+
+---
+
+## Tecnologias utilizadas
+
+* Next.js
+* React
+* JavaScript
+* CSS Modules
+* Git & GitHub
+
+---
+
+## Como rodar o projeto
+
+Acesse o seguinte link para visualizar meu portfólio:
+https://portfolio-angelo-david.vercel.app/
+
+ou
+
+1. Clone o repositório:
+
+```bash id="z4p8sx"
+git clone https://github.com/regentrock/portfolio-angelo-david
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Acesse a pasta do projeto:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash id="q1m9ld"
+cd portfolio-angelo-david
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instale as dependências:
 
-## Learn More
+```bash id="n7v2kc"
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Rode o projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash id="h3x8wa"
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. Acesse no navegador:
 
-## Deploy on Vercel
+```bash id="b6y4re"
+http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Autor
+
+Desenvolvido por Ângelo David
+🔗 https://github.com/regentrock
+
