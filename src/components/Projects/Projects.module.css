@@ -1,4 +1,3 @@
-/* src/components/Projects/Projects.module.css */
 .projects {
   padding: 5rem 0;
   background: var(--gradient-subtle);
@@ -12,7 +11,7 @@
   right: 0;
   width: 50%;
   height: 100%;
-  background: radial-gradient(circle at top right, rgba(74, 144, 226, 0.03), transparent);
+  background: radial-gradient(circle at top right, rgba(74, 144, 226, 0.05), transparent);
   pointer-events: none;
 }
 
@@ -38,11 +37,11 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--secondary-500);
-  background: var(--bg-accent);
+  background: rgba(74, 144, 226, 0.12);
   padding: 0.35rem 1rem;
   border-radius: 2rem;
   margin-bottom: 1rem;
-  border: 1px solid rgba(74, 144, 226, 0.1);
+  border: 1px solid rgba(74, 144, 226, 0.2);
 }
 
 .subtitle::before {
@@ -75,7 +74,7 @@
   right: 0;
   height: 2px;
   background: var(--secondary-500);
-  opacity: 0.3;
+  opacity: 0.4;
   border-radius: 2px;
 }
 
@@ -146,7 +145,7 @@
 
 .resetButton {
   padding: 0.5rem 1.25rem;
-  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-400));
+  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
   color: white;
   border: none;
   border-radius: var(--border-radius-md);
@@ -159,7 +158,7 @@
 .resetButton:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .projectsGrid {
